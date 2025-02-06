@@ -1,4 +1,6 @@
-# LandingSideComponent
+# search-filter-mvp
+
+This project is an mvp product, its focus is to implement a fully functional search and filter bar.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
