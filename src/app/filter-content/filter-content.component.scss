@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+.filtered-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.job-card {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+}
+
+.job-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.job-header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.job-info {
+  flex: 1;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  color: #171a1f;
+  margin: 0 0 0.5rem;
+}
+
+.salary {
+  font-size: 1rem;
+  color: #000034;
+  margin: 0;
+}
+
+.job-details,
+.job-tags {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.job-company {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tag {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.job-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.icon-tags {
+  display: flex;
+  gap: 1rem;
+
+  .menu-dots {
+    border: none;
+    background-color: white;
+  }
+
+  .save-text {
+    background-color: rgba(200, 251, 246, 1);
+    border: 1px solid #e5e7eb;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 52, 1);
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .apply-now {
+    background-color: #000034;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #2563eb;
+    }
+  }
+}
+
+.apply-now {
+  background-color: #000034;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.apply-now:hover {
+  background-color: #2563eb;
+}
+
+// RECRUITER
+.recuriter {
+  border: 1px solid #e5e7eb;
+  padding: 2rem;
+
+  .cont-recruit {
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    color: #171a1f;
+  }
+}
+
+.recruiter-details {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .recruiter-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .recr-name {
+      font-family: Lato;
+      font-weight: 700;
+      font-size: 16px;
+      color: #171a1f;
+      line-height: 26px;
+    }
+
+    .recr-pos {
+      font-weight: 400;
+      color: #6e7787;
+      line-height: 26px;
+      font-size: 16px;
+    }
+  }
+
+  .job-agent {
+    background-color: rgba(255, 246, 240, 1);
+    color: rgba(255, 131, 43, 1);
+    border-radius: 12px;
+    padding: 7px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Lato;
+  }
+
+  .message {
+    margin-left: auto;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    padding: 0.3rem 0.4rem;
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000034;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #f1f5f9;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// JOB Description
+.job-description {
+  padding: 2rem;
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+}
+
+// RESPONSIBILITY
+.responsibility {
+  list-style: none;
+  padding: 0rem 2rem 0rem 2rem;
+  margin: 0.5rem 0 0;
+}
+
+.responsibility li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.responsibility li img {
+  width: 16px;
+  height: 16px;
+}
+
+// COMPANY DETAILS
+.about-company-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+
+  .company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .about-company {
+      font-family: lato;
+      line-height: 26px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #171a1f;
+    }
+
+    .profile-link {
+      font-family: lato;
+      font-size: 0.875rem;
+      color: #000034;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .company-info {
+    display: flex;
+    align-items: start;
+    margin-top: 1rem;
+
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      margin-right: 1rem;
+    }
+
+    .company-name {
+      font-family: Sarabun;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 26px;
+      color: #1f2937;
+    }
+
+    .company-description {
+      font-family: Lato;
+      margin: 0.5rem 0 0;
+      font-size: 16px;
+      color: #171a1f;
+      line-height: 26px;
+      font-weight: 400;
+    }
+  }
+
+  .company-details {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.2rem;
+
+    p {
+      display: flex;
+      font-family: Lato;
+      font-weight: 400;
+      size: 16px;
+      line-height: 26px;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+/* Media Queries for Responsive Design */
+
+/* Forsmall screens */
+@media (max-width: 590px) {
+  .filtered-content {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .job-card {
+    max-width: 100%;
+  }
+
+  .job-image {
+    width: 100%;
+  }
+
+  .job-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    // padding: 1rem;
+  }
+
+  .job-title {
+    font-size: 1.25rem;
+  }
+
+  .salary {
+    font-size: 0.875rem;
+  }
+
+  .recruiter-details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .responsibility li {
+    font-size: 0.75rem;
+  }
+
+  .job-actions {
+    align-items: stretch;
+  }
+
+  .apply-now {
+    font-size: 0.875rem;
+  }
+}
