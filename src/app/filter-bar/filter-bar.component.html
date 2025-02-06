@@ -1,0 +1,258 @@
+<div class="filter-bar">
+  <div class="filter-wrapper">
+    <!-- Search Section -->
+    <div class="search-section">
+      <label for="searchInput">Search</label>
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="UX UI Designer"
+          [(ngModel)]="searchQuery"
+          (input)="applyFilters()"
+        />
+      </div>
+    </div>
+
+    <img src="seperator.png" alt="separator" class="seperator" />
+
+    <!-- Filters Section -->
+    <div class="filters-section">
+      <div class="filter-options">
+      <label>Filters</label>
+      <div class="filters">
+        <select
+          id="locationFilter"
+          [(ngModel)]="selectedLocation"
+          (change)="applyFilters()"
+        >
+          <option value="">Location</option>
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+
+        <select
+          id="jobTypeFilter"
+          [(ngModel)]="selectedJobType"
+          (change)="applyFilters()"
+        >
+          <option value="">Job type</option>
+          <option *ngFor="let jobType of jobTypes" [value]="jobType">
+            {{ jobType }}
+          </option>
+        </select>
+
+        <select
+          id="experienceLevelFilter"
+          [(ngModel)]="selectedExperienceLevel"
+          (change)="applyFilters()"
+        >
+          <option value="">Experience level</option>
+          <option *ngFor="let level of experienceLevels" [value]="level">
+            {{ level }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+      <!-- Clear Filters -->
+      <div class="clear-section">
+        <label (click)="clearFilters()">Clear Filters</label>
+        <div class="filters">
+          <select
+            id="companyTypeFilter"
+            [(ngModel)]="selectedCompanyType"
+            (change)="applyFilters()"
+          >
+            <option value="">Company type</option>
+            <option *ngFor="let company of companyTypes" [value]="company">
+              {{ company }}
+            </option>
+          </select>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- search for small screen -->
+<div class="search-bar-container">
+  <!-- Search Input -->
+  <div class="search-input-wrapper">
+    <span class="search-icon">🔍</span>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search for jobs..."
+      [(ngModel)]="searchQuery"
+      (input)="applyFilters()"
+    />
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-container">
+    <select [(ngModel)]="selectedLocation" (change)="applyFilters()">
+      <option value="">Location</option>
+      <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedJobType" (change)="applyFilters()">
+      <option value="">Job type</option>
+      <option *ngFor="let jobType of jobTypes" [value]="jobType">{{ jobType }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedExperienceLevel" (change)="applyFilters()">
+      <option value="">Experience level</option>
+      <option *ngFor="let level of experienceLevels" [value]="level">{{ level }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedCompanyType" (change)="applyFilters()">
+      <option value="">Company type</option>
+      <option *ngFor="let company of companyTypes" [value]="company">{{ company }}</option>
+    </select>
+  </div>
+</div>
+
+
+<!-- Results Found Section -->
+<div class="results-found">
+  <p *ngIf="searchQuery.length > 0">
+    {{ filteredJobs.length }} results for '{{ searchQuery }}'
+  </p>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  <!-- Job List -->
+  <div class="job-list" *ngIf="filteredJobs.length > 0">
+    <div
+      *ngFor="let job of filteredJobs"
+      class="job-card"
+      (click)="onCardClick(job)"
+    >
+      <div class="card">
+        <!-- Header Section -->
+        <div class="header">
+          <div class="logo">
+            <img [src]="job.logo" [alt]="job.companyName + ' logo'" />
+          </div>
+
+          <div class="title-text">
+            <div class="title">{{ job.title }}</div>
+          </div>
+
+          <h4 *ngIf="job.isHot" class="tag">Hot</h4>
+        </div>
+
+        <!-- Salary -->
+        <div class="salary">{{ job.salaryRange }}</div>
+
+        <!-- Job Details -->
+        <div class="details">
+          <div class="detail">
+            <span class="icon"><img src="company-icon.png" alt="" /></span>
+            <span class="text">{{ job.companyName }}</span>
+          </div>
+          <div class="detail">
+            <span class="icon"><img src="location-pin.png" alt="" /></span>
+            <span class="text">{{ job.location }}</span>
+          </div>
+          <div class="detail">
+            <span class="icon"><img src="jobtype.png" alt="" /></span>
+            <span class="text">{{ job.jobType }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Results Message -->
+  <div *ngIf="filteredJobs.length === 0" class="no-results-container">
+    <div class="no-results">
+      <img src="searchNotFound.png" alt="No results" />
+      <p>No jobs available</p>
+      <p>Check back later</p>
+    </div>
+  </div>
+
+  <!-- Filter Content (only shown if jobs exist) -->
+  <div
+    *ngIf="filteredJobs.length > 0 && showFilterContent"
+    class="job-details"
+  >
+    <app-filter-content></app-filter-content>
+  </div>
+</div>
+
+
+
+<!-- Responsive Design max-width(390px) -->
+
+
+<!-- Main Content -->
+<div class="main-content-sm">
+  <!-- Job List -->
+  <div class="job-list" *ngIf="filteredJobs.length > 0">
+    <div
+      *ngFor="let job of filteredJobs"
+      class="job-card"
+      (click)="onCardClickSm(job)"
+    >
+      <div class="card">
+        <!-- Header Section -->
+        <div class="header">
+          <div class="logo">
+            <img [src]="job.logo" [alt]="job.companyName + ' logo'" />
+          </div>
+
+          <div class="title-text">
+            <div class="title">{{ job.title }}</div>
+          </div>
+
+          <h4 *ngIf="job.isHot" class="tag">Hot</h4>
+        </div>
+
+        <!-- Salary -->
+        <div class="salary">{{ job.salaryRange }}</div>
+
+        <!-- Job Details -->
+        <div class="details">
+          <div class="detail">
+            <span class="icon"><img src="company-icon.png" alt="" /></span>
+            <span class="text">{{ job.companyName }}</span>
+          </div>
+          <div class="detail">
+            <span class="icon"><img src="location-pin.png" alt="" /></span>
+            <span class="text">{{ job.location }}</span>
+          </div>
+          <div class="detail">
+            <span class="icon"><img src="jobtype.png" alt="" /></span>
+            <span class="text">{{ job.jobType }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Results Message -->
+  <div *ngIf="filteredJobs.length === 0" class="no-results-container">
+    <div class="no-results">
+      <img src="searchNotFound.png" alt="No results" />
+      <p>No jobs available</p>
+      <p>Check back later</p>
+    </div>
+  </div>
+
+  <!-- Filter Content (only shown if jobs exist) -->
+  <div
+    *ngIf="filteredJobs.length > 0 && showFilterContent"
+    class="job-details"
+  >
+    <app-filter-content></app-filter-content>
+  </div>
+</div>
+
